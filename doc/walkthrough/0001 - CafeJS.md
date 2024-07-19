@@ -67,4 +67,18 @@ If you get a response like `v20.15.1` or similar, you may proceed.
 
 ### Windows
 
+Please install the following software. You can get this from the official website of Node.js at https://nodejs.org.
 
+- Node.js v20.x.x
+
+**Pay attention to the installer.** When it prompts you with "Tools for Native Modules", tick the box.
+
+A PowerShell window may open to install Chocolatey and other Node.js modules. Follow the wizard to completion. 
+
+When everything seems done, open a PowerShell window and check the version of Node.js:
+
+```powershell
+node -v
+```
+
+If you get a response like `v20.15.1` or similar, you may proceed.
