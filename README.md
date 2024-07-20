@@ -2,7 +2,9 @@
 
 2024-07-19
 
-This is the repository for the CafeJS walkthrough. This is the JavaScript-based version of Digital Cafe, which is the scenario we use to teach students of ITMGT how to build a web application. CafeJS places special emphasis on how to write the "front-end", which is code that runs on your user's device. In this case, your user's device can be assumed to be running a web browser like Chrome or Firefox. We will also have to discuss how to write the "back-end", or code that runs on your servers. I will heavily scaffold the back-end, because as you will see later, just because JavaScript can do back-end does not mean that you should use JavaScript for back-end.
+This is the repository for the CafeJS walkthrough. This is the JavaScript-based version of Digital Cafe, which is the scenario we use to teach students of ITMGT how to build a web application.
+
+CafeJS places special emphasis on how to write the "front-end", which is code that runs on your user's device. In this case, your user's device can be assumed to be running a web browser like Chrome or Firefox. We will also have to discuss how to write the "back-end", or code that runs on your servers. I will heavily scaffold the back-end, because as you will see later, just because JavaScript can do back-end does not mean that you should use JavaScript for back-end.
 
 If you are a student aiming to complete the CafeJS assignment, please head to `doc/walkthrough` and go through each of the documents starting from 0001.
 
