@@ -1,2 +1,13 @@
 <h1>CafeJS</h1>
-<p>Welcome, <%= userName %>!</p>
+
+<% if (user) { %>
+    <p>Welcome, <%= user.username %>!</p>
+    <a href="/cart">View my cart</a>
+<% } %>
+
+<h2>Products</h2>
+<ul>
+    <% products.forEach( (product) => { %>
+        <li><a href="/product/<%= product.id %>"><%= product.name %></a> - PHP <%= product.price %></li>
+    <% }); %>
+</ul>

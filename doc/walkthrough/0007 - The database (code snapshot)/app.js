@@ -33,18 +33,6 @@ app.get('/product/:productId', async (req, res) => {
     })
 })
 
-app.post('/product/:productId', async (req, res) => {
-    // Collect the form data
-    let sessionToken = req.cookies['cafejs_session']
-    let user = await database.getUserBySessionToken(sessionToken)
-    let userId = user.id
-    let quantity = req.body.quantity
-    let productId = req.body.product_id
-    // Create the row
-    await database.createCartItem(productId, quantity, userId)
-    res.redirect('/')
-})
-
 app.get('/login', async (req, res) => {
     ejs.renderFile('views/login.ejs', (err, str) => {
         res.send(str)
@@ -65,19 +53,6 @@ app.post('/login', async (req, res) => {
     // Save the session to the database
     await database.setSession(sessionToken, user.id)
     res.redirect('/')
-})
-
-app.get('/cart', async (req, res) => {
-    let sessionToken = req.cookies['cafejs_session']
-    let user = await database.getUserBySessionToken(sessionToken)
-    let cartItems = await database.getCartItemsByUser(user)
-    let data = {
-        user: user,
-        cartItems: cartItems,
-    }
-    ejs.renderFile('views/cart.ejs', data, (err, str) => {
-        res.send(str)
-    })
 })
 
 app.get('/username', async (req, res) => {

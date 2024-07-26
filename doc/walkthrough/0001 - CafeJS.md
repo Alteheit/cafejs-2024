@@ -10,7 +10,7 @@ In this walkthrough, we will be building a simple e-commerce application for a c
 
 We will use the Express framework to build our web app. Express is more accurately described as a _microframework_ than a full framework due to its lack of opinion on how to implement features. We have learned over the years that beginners benefit greatly from opinion, so we will build our web app according to the opinions that I have developed after developing a few web projects myself.
 
-The repository you are in right now is a snapshot of the code we had after writing documents TODO through TODO. Note that you might not be able to download and run this repository directly, because we have excluded an environment variable file from the git repository. It shouldn't matter: you are mean to build CafeJS from scratch in your own repository. Use this repo as a guide, not as something to copy in its entirety.
+The repository you are in right now is a snapshot of the code we had after writing documents TODO through TODO. Note that you might not be able to download and run this repository directly, because we have excluded an environment variable file from the git repository. It shouldn't matter: you are meant to build CafeJS from scratch in your own repository. Use this repo as a guide, not as something to copy in its entirety.
 
 ## Objectives
 
