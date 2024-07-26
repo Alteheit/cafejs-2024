@@ -67,6 +67,8 @@ We should pause for a moment here to think about what we want to feed our templa
     - quantity
     - productName
 
+## Back to the database
+
 We will need to reshape our data a little in the database function to put the product name next to each Cart Item. Remember that each row in our `cjs_cart_item` table only has a product ID, not a name.
 
 I'm sure that you can do this with JavaScript, but this sort of re-shaping of data is what SQL was made for. We can use a basic SQL query to achieve our aims here:

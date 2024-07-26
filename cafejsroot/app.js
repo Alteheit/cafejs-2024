@@ -80,6 +80,19 @@ app.get('/cart', async (req, res) => {
     })
 })
 
+app.post('/cart', async (req, res) => {
+    let userId = req.body.user_id
+    userId = Number(userId)
+    let user = await database.getUserById(userId)
+    let cartItems = await database.getCartItemsByUser(user)
+    await database.checkoutCartForUser(user)
+    // Sanity check: render what we have
+    res.send({
+        user: user,
+        cartItems: cartItems
+    })
+})
+
 app.get('/username', async (req, res) => {
     res.send(req.cookies.cafejs_username)
 })

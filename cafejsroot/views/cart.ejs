@@ -11,3 +11,8 @@
         <li><%= cartItem.quantity %> - <%= cartItem.productName %></li>
     <% }); %>
 </ul>
+
+<form action="" method="post">
+    <input type="hidden" name="user_id" value="<%= user.id %>">
+    <input type="submit" value="Checkout">
+</form>

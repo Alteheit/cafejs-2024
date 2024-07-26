@@ -48,6 +48,8 @@ db.serialize(() => {
     db.run("CREATE TABLE IF NOT EXISTS cjs_product (name TEXT, price INTEGER, description TEXT)")
     db.run("CREATE TABLE IF NOT EXISTS cjs_session (token TEXT, user_id INTEGER)")
     db.run("CREATE TABLE IF NOT EXISTS cjs_cart_item (product_id, quantity, user_id)")
+    db.run("CREATE TABLE IF NOT EXISTS cjs_transaction (user_id INTEGER, created_at TEXT)")
+    db.run("CREATE TABLE IF NOT EXISTS cjs_line_item (transaction_id INTEGER, product_id INTEGER, quantity INTEGER)")
     // Insert seed data into cjs_user
     db.get('SELECT COUNT(*) AS count FROM cjs_user', [], (err, row) => {
         let count = row.count
@@ -212,6 +214,48 @@ function getCartItemsByUser(user) {
     })
 }
 
+function checkoutCartForUser(user) {
+    return new Promise((resolve, reject) => {
+        let userId = user.id
+        let query = 'SELECT SUM(quantity) AS quantity, user_id, product_id FROM cjs_cart_item WHERE user_id = ? GROUP BY user_id, product_id'
+        db.all(query, [userId], (err, rows) => {
+            resolve(rows.map((row) => {
+                return {
+                    userId: userId,
+                    productId: row.product_id,
+                    quantity: row.quantity
+                }
+            }))
+        })
+    }).then((cartItems) => {
+        return new Promise((resolve, reject) => {
+            let userId = cartItems[0].userId
+            let now = (new Date()).toUTCString()
+            db.serialize(() => {
+                let query = 'INSERT INTO cjs_transaction (created_at, user_id) VALUES (?, ?)'
+                // It needs to be a function(), not an arrow, for this.lastID to work
+                db.run(query, [now, userId], function() {
+                    let transactionId = this.lastID
+                    console.log(`tx_id: ${transactionId}`)
+                    let stmt = 'INSERT INTO cjs_line_item (transaction_id, product_id, quantity) VALUES (?, ?, ?)'
+                    stmt = db.prepare(stmt)
+                    cartItems.forEach(cartItem => {
+                        stmt.run(transactionId, cartItem.productId, cartItem.quantity)
+                    })
+                    resolve(userId)
+                })
+            })
+        })
+    }).then((userId) => {
+        return new Promise((resolve, reject) => {
+            let query = 'DELETE FROM cjs_cart_item WHERE user_id = ?'
+            db.run(query, [Number(userId)], () => {
+                resolve(true)
+            })
+        })
+    })
+}
+
 module.exports = {
     getProducts,
     getProductById,
@@ -223,4 +267,5 @@ module.exports = {
     setSession,
     createCartItem,
     getCartItemsByUser,
+    checkoutCartForUser,
 }
