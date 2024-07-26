@@ -175,4 +175,4 @@ Take a very short video of you going through the whole checkout process. Show me
 
 ## A challenge
 
-Your clients want you to implement a "transaction history" feature. Go.
+Your clients want you to implement a "transaction history" feature. Go do it.

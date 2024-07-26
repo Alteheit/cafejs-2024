@@ -10,7 +10,7 @@ In this walkthrough, we will be building a simple e-commerce application for a c
 
 We will use the Express framework to build our web app. Express is more accurately described as a _microframework_ than a full framework due to its lack of opinion on how to implement features. We have learned over the years that beginners benefit greatly from opinion, so we will build our web app according to the opinions that I have developed after developing a few web projects myself.
 
-The repository you are in right now is a snapshot of the code we had after writing documents TODO through TODO. Note that you might not be able to download and run this repository directly, because we have excluded an environment variable file from the git repository. It shouldn't matter: you are meant to build CafeJS from scratch in your own repository. Use this repo as a guide, not as something to copy in its entirety.
+The repository you are in right now is a snapshot of the code we had after writing documents 0001 through 0010. Note that you might not be able to download and run this repository directly. It shouldn't matter. You are meant to build CafeJS from scratch in your own repository. Use this repo as a guide, not as something to copy in its entirety.
 
 ## Objectives
 
@@ -19,7 +19,9 @@ After completing this walkthrough, you should be able to:
 1. Build a simple web app from scratch using Express,
 2. Reason about how to add a new feature to an Express web app.
 
-I should note that the culture around JavaScript (henceforth JS) is somewhat problematic. The JS community seems to have a fixation with overcomplicating their applications. We agreed that we would follow my (hopefully well-developed) opinions: one such opinion of mine is that beginners should learn to build a web app using a simple request-response model first. We will use Express as a simple request-response web server. For the purposes of this walkthrough, please **disregard** any material from the JS community that insists that you build your web apps using any of the following terms:
+I should note that the culture around JavaScript (henceforth JS) is somewhat problematic. A lot of JavaScript users love the language and, in my opinion, seem to hate making working software.
+
+We agreed that we would follow my (hopefully well-developed) opinions. One such opinion of mine is that beginners should learn to build a web app using a simple request-response model first. So, we will use Express as a simple request-response web server. For the purposes of this walkthrough, please **disregard** any material from the JS community that insists that you build your web apps using any of the following terms:
 
 - Single-Page Application (SPA)
 - Edge
