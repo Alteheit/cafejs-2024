@@ -8,7 +8,9 @@ The rest of this walkthrough assumes that you are familiar with your terminal or
 
 ## Express development approach
 
-TODO
+Express calls itself a "fast, unopinionated, minimalist web framework." I cannot disagree. It is, in fact, all of those things, perhaps even fast.
+
+The issue here is that a lot of basic functions do _not_ come with the framework out of the box. This is by design. We will need to add dependencies to perform these functions, so get ready for that.
 
 ## Hello world
 
